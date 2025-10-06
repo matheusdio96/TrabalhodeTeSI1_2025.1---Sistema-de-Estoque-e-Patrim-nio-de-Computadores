@@ -2,8 +2,12 @@ import sqlite3
 from sqlite3 import Error
 
 class Conexao:
+    """
+    Classe responsável por estabelecer e retornar a conexão com o banco de dados SQLite.
+    """
     def get_conexao(self):
-        # Usando 'r' para criar uma raw string e evitar problemas com barras invertidas (\)
+        # ATENÇÃO: Este é o caminho absoluto que você especificou. 
+        # Garanta que o arquivo banco_tesi1.db exista neste local antes de executar.
         caminho = r'C:\Users\mathe\Tesi 1 2025.1\Projeto-n2\banco_de_dados\banco_tesi1.db'
         
         try:

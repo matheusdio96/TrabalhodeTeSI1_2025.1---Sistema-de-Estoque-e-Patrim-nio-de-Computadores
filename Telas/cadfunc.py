@@ -53,14 +53,12 @@ class TelaCadastroFuncionario:
         self.btn_cancelar = tb.Button(frame_botoes, text="Cancelar", bootstyle="danger", width=15)
         self.btn_cancelar.pack(side="left", padx=10)
 
-        self.btn_cadastrar = tb.Button(frame_botoes, text="Cadastrar", bootstyle="success", width=15,)
+        self.btn_cadastrar = tb.Button(frame_botoes, text="Cadastrar", bootstyle="success", width=15)
         self.btn_cadastrar.pack(side="left", padx=10)
 
         self.chk_gerente = tb.Checkbutton(self.janela, text="Gerente?")
         self.chk_gerente.pack(padx=35)
 
-
-
 app = tb.Window(themename="flatly")
-principal = TelaCadastroFuncionario(app)
+TelaCadastroFuncionario(app)
 app.mainloop()
