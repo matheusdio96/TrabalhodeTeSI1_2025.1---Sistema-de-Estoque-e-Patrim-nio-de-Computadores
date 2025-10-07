@@ -55,3 +55,61 @@ class ControllerFuncionario:
         params = (codigo_fc, nome, setor, email, telefone, tem_pc, codigo_pc, patrimonio, id)
         
         return self.model.update(sql, params)
+
+class ControllerComputadores:
+    """
+    Controlador responsável por intermediar as requisições da interface (View)
+    e a lógica de acesso a dados (Model) para a entidade COMPUTADOR.
+    """
+    def __init__(self):
+        self.model = Model()
+
+    def inserir_computador(self, id, marca, patrimonio, status, ano, setor, descricoes):
+        """
+        Cadastra um novo computador no sistema, utilizando o método do Model.
+        """
+        # Chama diretamente o método insert_computador que foi adicionado no Model.py
+        return self.model.insert_computador(
+            id, 
+            marca,  
+            patrimonio, 
+            status, 
+            ano, 
+            setor, 
+            descricoes, 
+        )
+
+    # EXEMPLO: Método para listar computadores (opcional)
+    def listar_computadores(self, termo_busca=''):
+        """
+        Lista todos os computadores, ou filtra por código ou marca.
+        """
+        if termo_busca:
+            sql = f"SELECT * FROM computadores WHERE id LIKE ? OR marca LIKE ? ORDER BY patrimonio"
+            return self.model.get(sql, (f'%{termo_busca}%', f'%{termo_busca}%'))
+        else:
+            sql = "SELECT * FROM computadores ORDER BY patrimonio"
+            return self.model.get(sql)
+        
+    def editar_computador(self, id, marca, patrimonio, status, ano, setor, descricoes):
+        """
+        Atualiza todos os dados de um computador existente com base no ID.
+        """
+        sql = """
+            UPDATE computadores SET marca=?, patrimonio=?, 
+            status=?, setor=?, ano=?, setor=?, 
+            localizacao=? WHERE id=?
+        """
+        params = (
+            marca, patrimonio, status, 
+            ano, setor, descricoes, id
+        )
+        
+        return self.model.update(sql, params) # Reutiliza o método update() do Model
+
+    def excluir_computador(self, id):
+        """
+        Exclui um computador do banco de dados pelo seu ID.
+        """
+        sql = "DELETE FROM computadores WHERE id=?"
+        return self.model.delete(sql, (id,)) # Reutiliza o método delete() do Model

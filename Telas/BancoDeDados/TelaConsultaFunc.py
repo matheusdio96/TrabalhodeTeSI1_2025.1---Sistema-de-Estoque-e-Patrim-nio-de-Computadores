@@ -32,7 +32,13 @@ class TelaConsultaFunc:
         self.entry_busca = tb.Entry(frame_busca, width=50, bootstyle="info")
         self.entry_busca.pack(side=LEFT, fill=X, expand=YES, padx=(0, 20))
         self.entry_busca.bind("<KeyRelease>", self.buscar_funcionario) # Busca em tempo real
+       
+        # Botão de pesquisar
+        self.btn_pesquisar = tb.Button(frame_busca, text="Pesquisar", bootstyle="success", width=12, command=self.buscar_funcionario)
+        self.btn_pesquisar.pack(side=LEFT, padx=(0, 10))
 
+        self.btn_limpar = tb.Button(frame_busca, text="Limpar", bootstyle="primary", width=12, command=self.limpar_busca)
+        self.btn_limpar.pack(side=LEFT, padx=(10, 0))
         self.btn_limpar = tb.Button(frame_busca, text="Limpar", bootstyle="outline-secondary", width=12, command=self.limpar_busca)
         self.btn_limpar.pack(side=LEFT, padx=(10, 0))
 

@@ -14,7 +14,8 @@ class Model:
         """
         Cria a tabela 'funcionarios' se ela não existir.
         """
-        sql = """CREATE TABLE IF NOT EXISTS "funcionarios" (
+        # SQL para a tabela 'funcionarios'
+        sql_funcionarios = """CREATE TABLE IF NOT EXISTS "funcionarios" (
                 "id" INTEGER,
                 "codigo_fc" VARCHAR NOT NULL UNIQUE,
                 "nome"  VARCHAR NOT NULL,
@@ -24,6 +25,18 @@ class Model:
                 "patrimonio" VARCHAR,
                 "email" VARCHAR,
                 "telefone" VARCHAR,
+                PRIMARY KEY("id" AUTOINCREMENT)
+                );"""
+        
+        # SQL para a tabela 'computadores'
+        sql_computadores = """CREATE TABLE IF NOT EXISTS "computadores" (
+                "id" INTEGER,
+                "marca" VARCHAR,
+                "patrimonio" VARCHAR,
+                "status" VARCHAR ,
+                "ano" VARCHAR,
+                "descricoes" VARCHAR,
+                "Setor" VARCHAR, -- Pode ser o setor ou funcionário ID
                 PRIMARY KEY("id" AUTOINCREMENT)
                 );"""
         try:

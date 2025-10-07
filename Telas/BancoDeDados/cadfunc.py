@@ -1,5 +1,6 @@
 import ttkbootstrap as tb
 from ttkbootstrap.constants import *
+import control
 
 class TelaCadastroFuncionario:
     def __init__(self, master):

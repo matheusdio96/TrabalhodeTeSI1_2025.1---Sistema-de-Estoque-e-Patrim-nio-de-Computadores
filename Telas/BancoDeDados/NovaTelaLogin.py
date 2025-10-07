@@ -1,6 +1,6 @@
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
-from ConfiguracaoLogin import ConfiguracaoLogin, TelaRedefinirSenha
+import ConfiguracaoLogin
 
 class TelaLogin:
     def __init__(self, master):
